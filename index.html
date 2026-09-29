@@ -1,8 +1,132 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#edf7f7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Health Onward"><link rel="apple-touch-icon" href="icon.png"><link rel="icon" href="icon.png"><title>Health Onward 2.0 — Prototype</title><style>
 :root{--navy:#245674;--blue:#488cb6;--sage:#85ae9b;--light:#eaf5f8;--mint:#edf7f0;--ink:#24445b;--muted:#526e7e;--red:#df6472;--line:#d3e5e8}*{box-sizing:border-box}html,body{margin:0;background:#eef4f4;color:var(--ink);font:16px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.app{width:min(100%,450px);min-height:100vh;margin:auto;background:#fff;padding-bottom:85px}.header{display:flex;gap:12px;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:5}.brandicon{width:46px;height:46px;border-radius:12px;object-fit:cover}.brand{font-size:24px;font-weight:800;color:var(--navy)}.tag{font-size:9px;letter-spacing:.6px;color:var(--muted)}main{padding:17px}.page{display:none}.page.active{display:block}.hero{background:linear-gradient(125deg,#e5f5fc,#e7f4eb);padding:22px;border-radius:20px;margin-bottom:18px}.hero h1{font-size:29px;margin:0 0 6px}.hero p{margin:0;line-height:1.5}.grid{display:grid;grid-template-columns:1fr;gap:12px}.grid .tile{width:100%;min-height:0;padding:22px;border-radius:20px}.tile{border:0;border-radius:17px;padding:17px;text-align:left;min-height:130px;background:#e9f5fb;color:var(--navy);font:inherit}.tile:nth-child(2n){background:#eaf5ee}.tile strong{display:block;font-size:17px}.tile span{display:block;font-size:12px;margin-top:8px}.emoji{font-size:24px;margin-bottom:8px}.back,.action{border:0;border-radius:10px;padding:11px 14px;font-weight:700}.back,.secondary{background:var(--light);color:var(--navy)}.action{background:var(--navy);color:#fff}.danger{background:#ffebed!important;color:#a73b51!important}.full{width:100%;margin:10px 0}.title{font-size:28px;color:var(--navy);margin:15px 0 5px}.subtitle,.small{color:var(--muted);line-height:1.4}.subtitle{margin:0 0 14px}.small{font-size:12px}.card{border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0;background:#fff}.card h3{margin:0 0 10px;color:var(--navy)}label.field{display:block;font-size:13px;font-weight:650;margin:13px 0 5px}input:not([type=checkbox]),textarea,select{width:100%;font:inherit;padding:11px;border:1px solid #b9d0d8;border-radius:10px;background:#fff}textarea{min-height:82px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tabs{display:flex;overflow:auto;gap:6px;padding:4px 0 10px}.tab{border:1px solid var(--line);border-radius:30px;padding:9px 12px;background:#fff;white-space:nowrap;color:var(--navy);font-weight:650}.tab.active{background:var(--navy);color:#fff}.panel{display:none}.panel.active{display:block}.qrow,.symrow{display:flex;gap:8px;margin:10px 0;align-items:flex-start}.qrow input,.symrow textarea{flex:1}.symrow textarea{min-height:60px}.remove{border:0;border-radius:9px;background:#ffebed;color:#a73b51;font-size:22px;width:38px;height:42px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{border:1px solid #a9cbd8;border-radius:12px;padding:9px;background:#e9f5fb;color:var(--navy);font-size:13px}.checks label{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}.checks input{width:21px;height:21px}.appt{border:1px solid var(--line);border-radius:15px;padding:14px;margin:10px 0}.appt strong{color:var(--navy);font-size:17px}.entry{border-bottom:1px solid var(--line);padding:10px 0}.repeat-item{border:1px solid var(--line);border-radius:13px;padding:12px;margin:10px 0;background:#fbfdfd}.repeat-item .remove-line{display:flex;justify-content:flex-end;margin-top:8px}.inline-check{display:flex;gap:8px;align-items:center;margin:8px 0}.inline-check input{width:18px;height:18px}.notice{background:#fff4e6;padding:12px;border-radius:12px;font-size:12px;line-height:1.45;color:#705530}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,450px);display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-top:1px solid var(--line);padding:9px 2px calc(9px + env(safe-area-inset-bottom));z-index:6}.bottom button{border:0;background:#fff;color:var(--navy);font-size:11px}.bottom span{display:block;font-size:21px}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);padding:11px 18px;background:var(--navy);color:#fff;border-radius:30px;display:none;z-index:10}@media(max-width:340px){.two{grid-template-columns:1fr}}
+
+/* TEAL CONSISTENCY DEMO */
+:root{
+  --section-teal:#4f8188;
+  --section-teal-light:#e1efef;
+}
+
+
+/* Home navigation boxes use the same light teal as Appointments and Timeline */
+#home .homegrid .bigbtn{
+  background:var(--section-teal-light);
+  border-color:#c3dddd;
+}
+
+/* The three Overview boxes in My Health Snapshot */
+[data-panel="snap-overview"] > .card{
+  background:var(--section-teal-light);
+  border-color:#c3dddd;
+  color:var(--ink);
+}
+[data-panel="snap-overview"] > .card h3,
+[data-panel="snap-overview"] > .card label.field{
+  color:var(--ink);
+}
+[data-panel="snap-overview"] > .card input,
+[data-panel="snap-overview"] > .card textarea,
+[data-panel="snap-overview"] > .card select{
+  color:var(--ink);
+}
+
+/* Lighter companion teal for appointment sub-boxes */
+#apptdetail .card,
+#appointments .appt{
+  background:var(--section-teal-light);
+  border-color:#c3dddd;
+}
+
+/* Lighter companion teal for timeline sub-boxes */
+#timeline .card{
+  background:var(--section-teal-light);
+  border-color:#c3dddd;
+}
+
+
+.mission-tagline{
+  text-align:center;
+  font-weight:800;
+  color:var(--navy);
+  letter-spacing:0;
+  font-size:11px;
+  white-space:nowrap;
+}
+@media (max-width:360px){
+  .mission-tagline{font-size:9.5px;}
+}
+
+
+/* HOME: force the three main navigation boxes to match the light teal sub-boxes */
+#home button[onclick*="'snapshot'"],
+#home button[onclick*="'appointments'"],
+#home button[onclick*="'timeline'"]{
+  background:var(--section-teal-light) !important;
+  border-color:#c3dddd !important;
+}
+
+
+/* FINAL HOME VISUAL */
+.home-brand{
+  text-align:center;
+  padding:8px 8px 18px;
+}
+.home-logo{
+  width:112px;
+  height:112px;
+  border-radius:25px;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 8px;
+}
+.home-brand h1{
+  margin:0;
+  color:var(--navy);
+  font-size:34px;
+  line-height:1.08;
+}
+.home-tagline{
+  margin-top:8px;
+  color:var(--navy);
+  font-weight:800;
+  font-size:11px;
+  white-space:nowrap;
+  letter-spacing:0;
+}
+.home-welcome{
+  background:var(--section-teal-light);
+  border:1px solid #c3dddd;
+}
+#home .tile,
+#home .mission-home-btn{
+  background:var(--section-teal-light) !important;
+  border:1px solid #c3dddd !important;
+  color:var(--navy) !important;
+}
+@media(max-width:360px){
+  .home-tagline{font-size:9.5px;}
+  .home-brand h1{font-size:31px;}
+}
+
+
+/* FINAL HEADER FIX: one Health Onward identity only, and it scrolls normally */
+header{
+  position:static !important;
+  top:auto !important;
+}
+.home-brand{display:none !important;}
+
 </style></head><body><div class="app"><header class="header"><img src="icon.png" class="brandicon"><div><div class="brand">Health Onward</div><div class="tag">KNOW • PREPARE • ASK • TRACK • TAKE CHARGE</div></div></header><main>
-<section id="home" class="page active"><div class="hero"><h1 id="hello">Hi, Kiersten!</h1></div><div class="grid"><button class="tile" onclick="go('snapshot')"><div class="emoji">📁</div><strong>My Health Snapshot</strong><span>Know your information</span></button><button class="tile" onclick="go('appointments')"><div class="emoji">📅</div><strong>My Appointments</strong><span>Prepare for upcoming visits and keep past visits</span></button><button class="tile" onclick="go('timeline')"><div class="emoji">📈</div><strong>My Health Timeline</strong><span>Appointments and other health events</span></button></div><button class="action secondary full" onclick="go('mission')">Health Onward’s Mission</button>
-<p class="notice">Prototype for demonstration only. Use fictional information, not real medical records, photographs, or insurance information. This is not a secure patient-record system or medical advice.</p></section>
+<section id="home" class="page active">
+<div class="hero home-welcome"><h1 id="hello">Hi, Kiersten!</h1></div>
+<div class="grid">
+  <button class="tile" onclick="go('snapshot')"><div class="emoji">📁</div><strong>My Health Snapshot</strong><span>Know your information</span></button>
+  <button class="tile" onclick="go('appointments')"><div class="emoji">📅</div><strong>My Appointments</strong><span>Prepare for upcoming visits and keep past visits</span></button>
+  <button class="tile" onclick="go('timeline')"><div class="emoji">📈</div><strong>My Health Timeline</strong><span>Appointments and other health events</span></button>
+</div>
+<button class="action secondary full mission-home-btn" onclick="go('mission')">Health Onward’s Mission</button>
+<p class="notice">Prototype for demonstration only. Use fictional information, not real medical records, photographs, or insurance information. This is not a secure patient-record system or medical advice.</p>
+</section>
 <section id="mission" class="page"><button class="back" onclick="go('home')">← Home</button>
 <h1 class="title">Health Onward’s Mission</h1>
 <div class="card">
@@ -10,7 +134,7 @@
 <p>The idea grew from her own experience. As a young teenager, Kiersten was misdiagnosed and had to learn how to speak up, ask questions, and become an active participant in her healthcare. Through that experience, she learned an important lesson: <strong>knowing how to advocate for your health is a life skill.</strong></p>
 <p>As teenagers become young adults, they begin taking responsibility for things their parents may have previously managed, including knowing their medical history and medications, preparing for appointments, asking questions, understanding what their providers tell them, and following through on next steps.</p>
 <p>Kiersten created Health Onward to help make that transition easier by giving young people a simple place to organize their health information, prepare for appointments, keep track of what happens, and develop the skills to advocate for themselves.</p>
-<p style="text-align:center;font-weight:800;color:var(--navy);letter-spacing:.5px">KNOW • PREPARE • ASK • TRACK • TAKE CHARGE</p>
+<p class="mission-tagline">KNOW • PREPARE • ASK • TRACK • TAKE CHARGE</p>
 </div></section><section id="snapshot" class="page"><button class="back" onclick="go('home')">← Home</button><h1 class="title">My Health Snapshot</h1><p class="subtitle">Your information, organized and accessible.</p><div class="tabs" data-group="snap"><button class="tab active" onclick="tab('snap','overview',this)">Overview</button><button class="tab" onclick="tab('snap','meds',this)">Medications</button><button class="tab" onclick="tab('snap','allergies',this)">Allergies</button><button class="tab" onclick="tab('snap','history',this)">History</button><button class="tab" onclick="tab('snap','insurance',this)">Insurance</button></div>
 <div class="panel active" data-panel="snap-overview"><div class="card"><h3>Personal Information</h3><div class="two"><div><label class="field">First Name</label><input data-key="first_name" id="firstName" placeholder="Kiersten"></div><div><label class="field">Last Name</label><input data-key="last_name"></div></div><label class="field">Date of Birth</label><input data-key="dob" placeholder="MM/DD/YYYY"><label class="field">Emergency contact</label><input data-key="emergency"></div><div class="card"><h3>Healthcare Providers</h3><label class="field">Primary care provider</label><input data-key="pcp"><label class="field">Specialists</label><textarea data-key="specialists"></textarea><label class="field">Pharmacy and phone</label><input data-key="pharmacy"></div><div class="card"><h3>Optional Baseline Information</h3><div class="two"><div><label class="field">Usual systolic BP</label><input data-key="bp_sys"></div><div><label class="field">Usual diastolic BP</label><input data-key="bp_dia"></div></div></div></div>
 <div class="panel" data-panel="snap-meds"><div class="card"><h3>Medications & Supplements</h3><div id="medicationList"></div><button class="action secondary full" type="button" onclick="addMedication()">+ Add Medication / Supplement</button></div></div>
